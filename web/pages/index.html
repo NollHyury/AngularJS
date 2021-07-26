@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="listaTelefonica">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Telefonica</title>
+    <link rel="stylesheet" type="text/css" href="../libs/bootstrap.min.css">
+    <style>
+        .jumbotron {
+            width: 600px;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
+        }
+        
+        .table {
+            margin-top: 20px;
+        }
+        
+        .form-control {
+            margin-bottom: 5px;
+        }
+        
+        .selecionado {
+            background-color: yellow;
+        }
+        
+        .negrito {
+            font-weight: bold;
+        }
+    </style>
+
+    <script src="../libs/angular.min.js"></script>
+    <script src="../libs/angular-messages.min.js"></script>
+    <script>
+        angular.module('listaTelefonica', ["ngMessages"]);
+        angular.module('listaTelefonica').controller('listaTelefonicaCtrl', function($scope) {
+            $scope.app = "Lista Telefonica";
+            $scope.contatos = [{
+                nome: "Pedro",
+                telefone: "99998888",
+                cor: "red",
+                data: new Date(),
+                operadora: {
+                    nome: "Oi",
+                    codigo: 14,
+                    categoria: "Celular"
+                }
+            }, {
+                nome: "Ana",
+                telefone: "91194888",
+                cor: "green",
+                data: new Date(),
+                operadora: {
+                    nome: "Oi",
+                    codigo: 14,
+                    categoria: "Celular"
+                }
+            }, {
+                nome: "Maria",
+                telefone: "999984238",
+                cor: "blue",
+                data: new Date(),
+                operadora: {
+                    nome: "Oi",
+                    codigo: 14,
+                    categoria: "Celular"
+                }
+            }, ]
+
+            $scope.operadoras = [{
+                    nome: "Oi",
+                    codigo: 14,
+                    categoria: "Celular"
+                }, {
+                    nome: "TIM",
+                    codigo: 41,
+                    categoria: "Celular"
+                }, {
+                    nome: "VIVO",
+                    codigo: 15,
+                    categoria: "Celular"
+                }, {
+                    nome: "NET",
+                    codigo: 21,
+                    categoria: "Fixo"
+                }, {
+                    nome: "GVT",
+                    codigo: 25,
+                    categoria: "Fixo"
+                },
+
+            ]
+            $scope.adicionarContato = function(contato) {
+                $scope.contatos.push(angular.copy(contato));
+                delete $scope.contato;
+                $scope.contatoForm.$setPristine();
+            }
+
+            $scope.apagarContatos = function(contatos) {
+                $scope.contatos = contatos.filter(function(element) {
+                    return !element.selecionado
+                })
+            }
+
+            $scope.isContatoSelecionado = function(contatos) {
+                return contatos.some(function(contato) {
+                    return contato.selecionado
+                })
+            }
+
+            $scope.classe1 = 'selecionado'
+            $scope.classe2 = 'negrito'
+        });
+    </script>
+</head>
+
+<body ng-controller="listaTelefonicaCtrl">
+    <div class="jumbotron">
+        <h4 ng-bind="app"></h4>
+        <h5>{{app}}</h5>
+
+        <input class="form-control" type="text" ng-model="busca" placeholder="O que você está buscando?" />
+        <table ng-show="contatos.length > 0" class="table table-striped">
+            <tr>
+                <th></th>
+                <th>Nome</th>
+                <th>Telefone</th>
+                <th>Operadora</th>
+                <th>Data</th>
+                <th></th>
+            </tr>
+
+            <tr ng-class="{'selecionado negrito': contato.selecionado}" ng-repeat="contato in contatos | filter:{nome:busca}">
+                <td><input type="checkbox" ng-model="contato.selecionado" /></td>
+                <td>{{contato.nome | uppercase}}</td>
+                <td>{{contato.telefone | lowercase}}</td>
+                <td>{{contato.operadora.nome}}</td>
+                <td>{{contato.data | date: 'dd/MM/yyyy HH:mm'}}</td>
+                <!--<td ng-repeat="(key, value) in contato">
+                    {{key + ' - ' + value}}
+                </td>-->
+                <th>
+                    <div style="width: 20px; height: 20px;" ng-style="{'background-color': contato.cor}"></div>
+                </th>
+            </tr>
+        </table>
+
+        <hr> É valido : {{contatoForm.$valid}}
+        <form name="contatoForm">
+            <input class="form-control" type="text" name="nome" ng-model="contato.nome" ng-required="true" ng-minlength="10" />
+            <input class="form-control" type="text" name="telefone" ng-model="contato.telefone" ng-required="true" ng-pattern="/^\d{4,5}-\d{4}$/" />
+
+            <!-- ng-options="operadora.codigo as operadora.nome for operadora in operadoras"-->
+            <!-- ng-options="operadora.nome for operadora in operadoras"-->
+            <select class="form-control" ng-model="contato.operadora" ng-options="operadora.nome group by operadora.categoria for operadora in operadoras">
+                <option value="">Selecione uma operadora</option>
+            </select>
+        </form>
+
+        <div ng-messages="contatoForm.nome.$error" class="alert alert-danger">
+            <div ng-message="required">
+                Por favor, preencha o nome
+            </div>
+
+            <div ng-message="minlength">
+                O campo nome deve ter no minímo 10 caracteres;
+            </div>
+        </div>
+
+
+        <div ng-messages="contatoForm.telefone.$error" class="alert alert-danger">
+            <div ng-message="required">
+                Por favor, preencha o telefone
+            </div>
+
+            <div ng-message="pattern">
+                O campo telefone deve conter o formato DDDDD-DDDDD
+            </div>
+        </div>
+
+
+        <button ng-click="adicionarContato(contato)" class="btn btn-primary btn-block" ng-disabled="contatoForm.$invalid">Adicionar
+            Contato</button>
+
+        <button ng-click="apagarContatos(contatos)" class="btn btn-danger btn-block" ng-if="isContatoSelecionado(contatos)">Apagar Contatos</button>
+    </div>
+    <div ng-include="'footer.html'"></div>
+</body>
+
+</html>
