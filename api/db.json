@@ -1,0 +1,120 @@
+{
+  "contatos": [
+    {
+      "id": 1,
+      "nome": "Pedro",
+      "telefone": "99998888",
+      "cor": "red",
+      "data": "2021-07-29T11:29:37.085Z",
+      "operadora": {
+        "nome": "Oi",
+        "codigo": 14,
+        "categoria": "Celular"
+      }
+    },
+    {
+      "id": 2,
+      "nome": "Ana",
+      "telefone": "91194888",
+      "cor": "green",
+      "data": "2021-07-29T11:29:37.085Z",
+      "operadora": {
+        "nome": "Oi",
+        "codigo": 14,
+        "categoria": "Celular"
+      }
+    },
+    {
+      "id": 3,
+      "nome": "Maria",
+      "telefone": "999984238",
+      "cor": "blue",
+      "data": "2021-07-29T11:29:37.085Z",
+      "operadora": {
+        "nome": "Oi",
+        "codigo": 14,
+        "categoria": "Celular"
+      }
+    },
+    {
+      "nome": "Hyury Luis da Silva Noll",
+      "telefone": "99718-5054",
+      "operadora": {
+        "nome": "VIVO",
+        "codigo": 15,
+        "preco": 9.9,
+        "categoria": "Celular"
+      },
+      "data": "2021-07-29T11:50:38.876Z",
+      "id": 4
+    },
+    {
+      "nome": "Hyury Luis da Silva Noll",
+      "telefone": "99718-5054",
+      "operadora": {
+        "nome": "VIVO",
+        "codigo": 15,
+        "preco": 9.9,
+        "categoria": "Celular"
+      },
+      "data": "2021-07-29T11:52:15.069Z",
+      "id": 5
+    },
+    {
+      "nome": "Hyury Luis da Silva Noll",
+      "telefone": "99718-5054",
+      "operadora": {
+        "nome": "GVT",
+        "codigo": 25,
+        "preco": 49.9,
+        "categoria": "Fixo"
+      },
+      "data": "2021-07-29T11:52:46.077Z",
+      "id": 6
+    },
+    {
+      "nome": "Hyury Luis da Silva Noll",
+      "telefone": "99718-5054",
+      "operadora": {
+        "nome": "GVT",
+        "codigo": 25,
+        "preco": 49.9,
+        "categoria": "Fixo"
+      },
+      "data": "2021-07-29T11:53:53.918Z",
+      "id": 7
+    }
+  ],
+  "operadoras": [
+    {
+      "nome": "Oi",
+      "codigo": 14,
+      "preco": 12.9,
+      "categoria": "Celular"
+    },
+    {
+      "nome": "TIM",
+      "codigo": 41,
+      "preco": 11.9,
+      "categoria": "Celular"
+    },
+    {
+      "nome": "VIVO",
+      "codigo": 15,
+      "preco": 9.9,
+      "categoria": "Celular"
+    },
+    {
+      "nome": "NET",
+      "codigo": 21,
+      "preco": 25.9,
+      "categoria": "Fixo"
+    },
+    {
+      "nome": "GVT",
+      "codigo": 25,
+      "preco": 49.9,
+      "categoria": "Fixo"
+    }
+  ]
+}

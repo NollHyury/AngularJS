@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html ng-app="VC">
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>VC - ENG</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../libs/bootstrap.min.css'>
+    <style>
+        .jumbotron {
+            width: 300px;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
+        }
+
+        .form-control {
+            margin-bottom: 5px;
+        }
+    </style>
+    <script src="../libs/angular.min.js"></script>
+    <script>
+        angular.module('VC',[]);
+        angular.module('VC').controller('VCController', function ($scope) {
+
+            $scope.continentes = [
+                {
+                    nome: 'EUROPA',
+                    paises: [
+                        {
+                            nome: 'Alemanha',
+                            normas: [
+                                {
+                                    nome: 'Norma1',
+                                    certificados: [
+                                        {
+                                            nome: 'Cert1'
+                                        },
+                                        {
+                                            nome: 'Cert2'
+                                        }
+                                    ]
+                                },
+                                {
+                                    nome: 'Norma2',
+                                    certificados: [
+                                        {
+                                            nome: 'Cert99'
+                                        },
+                                        {
+                                            nome: 'Cert91'
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            nome: 'Dinamarca',
+                            normas: [
+                                {
+                                    nome: 'Norma1',
+                                    certificados: [
+                                        {
+                                            nome: 'Cert1'
+                                        },
+                                        {
+                                            nome: 'Cert2'
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    nome: 'AMERICA LAT',
+                    paises: [
+                        {
+                            nome: 'Brasil',
+                            normas: [
+                                {
+                                    nome: 'Norma3',
+                                    certificados: [
+                                        {
+                                            nome: 'Cert12'
+                                        },
+                                        {
+                                            nome: 'Cert21'
+                                        }
+                                    ]
+                                },
+                                {
+                                    nome: 'Norma9',
+                                    certificados: [
+                                        {
+                                            nome: 'Cert99'
+                                        },
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            nome: 'Argentina',
+                            normas: [
+                                {
+                                    nome: 'Norma3',
+                                    certificados: [
+                                        {
+                                            nome: 'Cert12'
+                                        },
+                                        {
+                                            nome: 'Cert21'
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ];
+
+        })
+    </script>
+</head>
+
+<body ng-controller="VCController">
+    <h4 style="text-align:center;">Proposta de alteração do campo mercado no VC</h4>
+    <div class="jumbotron">
+        
+
+        <form name="infoForm">
+            <label for="continente">Continente de instalação</label>
+            <select class="form-control" id="continente" ng-model="info.continente" ng-options="continente.nome for continente in continentes">[
+                <option value="">Selecione um continente</option>
+            </select>
+
+            <label for="pais">País de instalação</label>
+            <select class="form-control" id="pais" ng-model="info.pais" ng-options="pais.nome for pais in info.continente.paises"></select>
+
+            <label for="Norma">Norma</label>
+            <select class="form-control" id="Norma" ng-model="info.norma" ng-options="norma.nome for norma in info.pais.normas"></select>
+
+            <label for="certificado">Certificado</label>
+            <select class="form-control" id="certificado" ng-model="info.certificado" ng-options="certificado.nome for certificado in info.norma.certificados"></select>
+
+            <span>
+                Continente : {{info.continente.nome}}
+                <br>
+                Pais : {{info.pais.nome}}
+                <br>
+                Norma : {{info.norma.nome}}
+                <br>
+                Certificado : {{info.certificado.nome}}
+            </span>
+
+        </form>
+
+    </div>
+</body>
+
+</html>
