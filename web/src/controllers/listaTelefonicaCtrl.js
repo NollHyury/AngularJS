@@ -1,4 +1,4 @@
-angular.module(__APP_NAME__).controller('listaTelefonicaCtrl', function ($scope, $http, contatosApi) {
+angular.module(__APP_NAME__).controller('listaTelefonicaCtrl', function ($scope, $http, contatosApi, serialGenerator) {
     var URLAPI = 'http://localhost:3000'
 
     $scope.app = "Lista Telefonica"
@@ -21,7 +21,7 @@ angular.module(__APP_NAME__).controller('listaTelefonicaCtrl', function ($scope,
 
     $scope.adicionarContato = function (contato) {
         contato.data = new Date();
-        contato.serial = uuid.v4();
+        contato.serial = serialGenerator.generate();
         contatosApi.saveContato(contato).then(res => {
             delete $scope.contato;
             $scope.contatoForm.$setPristine();

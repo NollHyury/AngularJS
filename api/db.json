@@ -40,73 +40,14 @@
       "nome": "Hyury Luis da Silva Noll",
       "telefone": "99718-5054",
       "operadora": {
-        "nome": "VIVO",
-        "codigo": 15,
-        "preco": 9.9,
-        "categoria": "Celular"
+        "nome": "NET",
+        "codigo": 21,
+        "preco": 25.9,
+        "categoria": "Fixo"
       },
-      "data": "2021-07-29T11:50:38.876Z",
+      "data": "2021-07-30T19:34:18.045Z",
+      "serial": "fc58ffa3-1e41-4252-be52-344371f39be6",
       "id": 4
-    },
-    {
-      "nome": "Hyury Luis da Silva Noll",
-      "telefone": "99718-5054",
-      "operadora": {
-        "nome": "VIVO",
-        "codigo": 15,
-        "preco": 9.9,
-        "categoria": "Celular"
-      },
-      "data": "2021-07-29T11:52:15.069Z",
-      "id": 5
-    },
-    {
-      "nome": "Hyury Luis da Silva Noll",
-      "telefone": "99718-5054",
-      "operadora": {
-        "nome": "GVT",
-        "codigo": 25,
-        "preco": 49.9,
-        "categoria": "Fixo"
-      },
-      "data": "2021-07-29T11:52:46.077Z",
-      "id": 6
-    },
-    {
-      "nome": "Hyury Luis da Silva Noll",
-      "telefone": "99718-5054",
-      "operadora": {
-        "nome": "GVT",
-        "codigo": 25,
-        "preco": 49.9,
-        "categoria": "Fixo"
-      },
-      "data": "2021-07-29T11:53:53.918Z",
-      "id": 7
-    },
-    {
-      "nome": "Hyury Luis da Silva Noll",
-      "telefone": "89718-5054",
-      "operadora": {
-        "nome": "GVT",
-        "codigo": 25,
-        "preco": 49.9,
-        "categoria": "Fixo"
-      },
-      "data": "2021-07-30T18:20:58.695Z",
-      "id": 8
-    },
-    {
-      "nome": "Hyury Luis da Silva Noll",
-      "telefone": "69718-5054",
-      "operadora": {
-        "nome": "TIM",
-        "codigo": 41,
-        "preco": 11.9,
-        "categoria": "Celular"
-      },
-      "data": "2021-07-30T18:22:03.662Z",
-      "id": 9
     },
     {
       "nome": "Hyury Luis da Silva Noll",
@@ -117,21 +58,9 @@
         "preco": 12.9,
         "categoria": "Celular"
       },
-      "data": "2021-07-30T18:23:07.478Z",
-      "id": 10
-    },
-    {
-      "nome": "Hyury Luis da Silva Noll",
-      "telefone": "45718-5054",
-      "operadora": {
-        "nome": "NET",
-        "codigo": 21,
-        "preco": 25.9,
-        "categoria": "Fixo"
-      },
-      "data": "2021-07-30T19:29:12.614Z",
-      "serial": "07ff2e67-7286-48bc-9a83-0c39c9c55559",
-      "id": 11
+      "data": "2021-07-30T19:45:07.299Z",
+      "serial": "96*RT)/F 3",
+      "id": 5
     }
   ],
   "operadoras": [
