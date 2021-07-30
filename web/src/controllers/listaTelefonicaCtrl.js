@@ -1,4 +1,4 @@
-angular.module('listaTelefonica').controller('listaTelefonicaCtrl', function ($scope, $http) {
+angular.module(__APP_NAME__).controller('listaTelefonicaCtrl', function ($scope, $http, contatosApi) {
     var URLAPI = 'http://localhost:3000'
 
     $scope.app = "Lista Telefonica"
@@ -6,12 +6,14 @@ angular.module('listaTelefonica').controller('listaTelefonicaCtrl', function ($s
 
     $scope.operadoras = [];
 
-    var carregarContatos = $http.get(`${URLAPI}/contatos`).then(function (res) {
-        $scope.contatos = res.data;
-    }).catch(function (err){
-        console.log(err)
-        $scope.errMes = err.statusText
-    });
+    var carregarContatos = function(){
+        contatosApi.getContatos().then(function (res) {
+            $scope.contatos = res.data;
+        }).catch(function (err){
+            console.log(err)
+            $scope.errMes = err.statusText
+        });
+    };
 
     var carregarOperadoras = $http.get(`${URLAPI}/operadoras`).then(function (res) {
         $scope.operadoras = res.data;
@@ -19,7 +21,8 @@ angular.module('listaTelefonica').controller('listaTelefonicaCtrl', function ($s
 
     $scope.adicionarContato = function (contato) {
         contato.data = new Date();
-        $http.post(`${URLAPI}/contatos`, contato).then(res => {
+        contato.serial = uuid.v4();
+        contatosApi.saveContato(contato).then(res => {
             delete $scope.contato;
             $scope.contatoForm.$setPristine();
             carregarContatos()
@@ -48,4 +51,6 @@ angular.module('listaTelefonica').controller('listaTelefonicaCtrl', function ($s
 
     $scope.classe1 = 'selecionado'
     $scope.classe2 = 'negrito'
+
+    carregarContatos()
 });

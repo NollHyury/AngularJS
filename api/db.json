@@ -83,6 +83,55 @@
       },
       "data": "2021-07-29T11:53:53.918Z",
       "id": 7
+    },
+    {
+      "nome": "Hyury Luis da Silva Noll",
+      "telefone": "89718-5054",
+      "operadora": {
+        "nome": "GVT",
+        "codigo": 25,
+        "preco": 49.9,
+        "categoria": "Fixo"
+      },
+      "data": "2021-07-30T18:20:58.695Z",
+      "id": 8
+    },
+    {
+      "nome": "Hyury Luis da Silva Noll",
+      "telefone": "69718-5054",
+      "operadora": {
+        "nome": "TIM",
+        "codigo": 41,
+        "preco": 11.9,
+        "categoria": "Celular"
+      },
+      "data": "2021-07-30T18:22:03.662Z",
+      "id": 9
+    },
+    {
+      "nome": "Hyury Luis da Silva Noll",
+      "telefone": "99718-5054",
+      "operadora": {
+        "nome": "Oi",
+        "codigo": 14,
+        "preco": 12.9,
+        "categoria": "Celular"
+      },
+      "data": "2021-07-30T18:23:07.478Z",
+      "id": 10
+    },
+    {
+      "nome": "Hyury Luis da Silva Noll",
+      "telefone": "45718-5054",
+      "operadora": {
+        "nome": "NET",
+        "codigo": 21,
+        "preco": 25.9,
+        "categoria": "Fixo"
+      },
+      "data": "2021-07-30T19:29:12.614Z",
+      "serial": "07ff2e67-7286-48bc-9a83-0c39c9c55559",
+      "id": 11
     }
   ],
   "operadoras": [

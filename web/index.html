@@ -6,14 +6,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista Telefonica</title>
-    <link rel="stylesheet" type="text/css" href="../libs/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../styles/app.css">
+    
+    <!--Styles-->
+    <link rel="stylesheet" type="text/css" href="./libs/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./styles/app.css">
 
-    <script src="../libs/angular.min.js"></script>
-    <script src="../libs/angular-messages.min.js"></script>
-    <script src="../libs/angular-locale_pt-br.min.js"></script>
-    <script src="../src/app.js"></script>
-    <script src="../src/controllers/listaTelefonicaCtrl.js"></script>r
+    <!--Libs-->
+    <script src="./libs/angular.min.js"></script>
+    <script src="./libs/angular-messages.min.js"></script>
+    <script src="./libs/angular-locale_pt-br.min.js"></script>
+    <script src="./libs/uuid.min.js"></script>
+    
+    <!--APP-->
+    <script src="./src/app.js"></script>
+    <script src="./src/controllers/listaTelefonicaCtrl.js"></script>
+    <script src="./src/services/contatosService.js"></script>
+    <script src="./src/config/config.js"></script>
+
+
+
 </head>
 
 <body ng-controller="listaTelefonicaCtrl">
@@ -25,6 +36,7 @@
         <table ng-show="contatos.length > 0" class="table table-striped">
             <tr>
                 <th></th>
+                <th>Serial</th>
                 <th><a href="" ng-click="orderPor('nome')">Nome</a></th>
                 <th><a href="" ng-click="orderPor('telefone')">Telefone</a></th>
                 <th>Operadora</th>
@@ -35,6 +47,7 @@
             <tr ng-class="{'selecionado negrito': contato.selecionado}"
                 ng-repeat="contato in contatos | filter:{nome:busca} | orderBy:criterioDeOrdenacao:direcaoDeOrdenacao ">
                 <td><input type="checkbox" ng-model="contato.selecionado" /></td>
+                <td>{{contato.serial}}</td>
                 <td>{{contato.nome}}</td>
                 <td>{{contato.telefone | lowercase}}</td>
                 <td>{{contato.operadora.nome}}</td>
