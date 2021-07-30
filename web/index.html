@@ -24,6 +24,8 @@
     <script src="./src/config/config.js"></script>
     <script src="./src/providers/serialGeneratorProvider.js"></script>
     <script src="./src/providers/config/serialGeneratorConfig.js"></script>
+    <script src="./src/filters/nameFilter.js"></script>
+    <script src="./src/filters/ellipsisFilter.js"></script>
 
 
 </head>
@@ -49,7 +51,7 @@
                 ng-repeat="contato in contatos | filter:{nome:busca} | orderBy:criterioDeOrdenacao:direcaoDeOrdenacao ">
                 <td><input type="checkbox" ng-model="contato.selecionado" /></td>
                 <td>{{contato.serial}}</td>
-                <td>{{contato.nome}}</td>
+                <td>{{contato.nome | name  | ellipsis:6 }}</td>
                 <td>{{contato.telefone | lowercase}}</td>
                 <td>{{contato.operadora.nome}}</td>
                 <td>{{contato.data | date: ' EEEE dd/MM/yyyy HH:mm'}}</td>
