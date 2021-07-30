@@ -11,7 +11,7 @@ angular.module(__APP_NAME__).controller('listaTelefonicaCtrl', function ($scope,
             $scope.contatos = res.data;
         }).catch(function (err){
             console.log(err)
-            $scope.errMes = err.statusText
+            $scope.errMes = err.xhrStatus
         });
     };
 

@@ -35,6 +35,12 @@
         <h4 ng-bind="app"></h4>
         <h5>{{app}}</h5>
         {{errMes}}
+
+        <div class="ui-alert">
+            <div class="ui-alert-title">
+                Ops, aconteceu um problema!
+            </div>
+        </div>
         <input class="form-control" type="text" ng-model="busca" placeholder="O que você está buscando?" />
         <table ng-show="contatos.length > 0" class="table table-striped">
             <tr>
