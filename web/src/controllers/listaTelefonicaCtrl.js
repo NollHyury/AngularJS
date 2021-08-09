@@ -1,4 +1,4 @@
-angular.module(__APP_NAME__).controller('listaTelefonicaCtrl', function ($scope, $http, contatosApi, serialGenerator) {
+angular.module(__APP_NAME__).controller('listaTelefonicaCtrl', function($scope, $http, contatosApi, serialGenerator) {
     var URLAPI = 'http://localhost:3000'
 
     $scope.app = "Lista Telefonica"
@@ -6,20 +6,20 @@ angular.module(__APP_NAME__).controller('listaTelefonicaCtrl', function ($scope,
 
     $scope.operadoras = [];
 
-    var carregarContatos = function(){
-        contatosApi.getContatos().then(function (res) {
+    var carregarContatos = function() {
+        contatosApi.getContatos().then(function(res) {
             $scope.contatos = res.data;
-        }).catch(function (err){
+        }).catch(function(err) {
             console.log(err)
-            $scope.errMes = err.xhrStatus
+            $scope.errMes = 'Não foi possível carregar os dados!'
         });
     };
 
-    var carregarOperadoras = $http.get(`${URLAPI}/operadoras`).then(function (res) {
+    var carregarOperadoras = $http.get(`${URLAPI}/operadoras`).then(function(res) {
         $scope.operadoras = res.data;
     });
 
-    $scope.adicionarContato = function (contato) {
+    $scope.adicionarContato = function(contato) {
         contato.data = new Date();
         contato.serial = serialGenerator.generate();
         contatosApi.saveContato(contato).then(res => {
@@ -32,19 +32,19 @@ angular.module(__APP_NAME__).controller('listaTelefonicaCtrl', function ($scope,
 
     }
 
-    $scope.apagarContatos = function (contatos) {
-        $scope.contatos = contatos.filter(function (element) {
+    $scope.apagarContatos = function(contatos) {
+        $scope.contatos = contatos.filter(function(element) {
             return !element.selecionado
         })
     }
 
-    $scope.isContatoSelecionado = function (contatos) {
-        return contatos.some(function (contato) {
+    $scope.isContatoSelecionado = function(contatos) {
+        return contatos.some(function(contato) {
             return contato.selecionado
         })
     }
 
-    $scope.orderPor = function (campo) {
+    $scope.orderPor = function(campo) {
         $scope.criterioDeOrdenacao = campo;
         $scope.direcaoDeOrdenacao = !$scope.direcaoDeOrdenacao;
     }
